@@ -1466,7 +1466,7 @@ func decodeGenerateSharedECCSecret(buf []byte) (ECPoint, ECPoint, error) {
         var x2, y2 []byte
         var paramSize2 uint16
 	if err := tpmutil.UnpackBuf(in, &paramSize2, &x2, &y2); err != nil {
-                return err
+                return zPoint, pubPoint, err
 	}
 	zPoint.X = new(big.Int).SetBytes(x1)
 	zPoint.Y = new(big.Int).SetBytes(y1)
